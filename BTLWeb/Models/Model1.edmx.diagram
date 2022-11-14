@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb30fcc19aab444db4912ab7c107b70c" Name="Diagram1">
+        <EntityTypeShape EntityType="banlaptopModel.banner" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="banlaptopModel.category" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="banlaptopModel.order_product" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="banlaptopModel.order" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="banlaptopModel.product" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="banlaptopModel.product_img_url" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="banlaptopModel.user" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="banlaptopModel.FK__product__categor__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="banlaptopModel.FK__order_pro__order__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="banlaptopModel.FK__order_pro__produ__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="banlaptopModel.FK__orders__users_id__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="banlaptopModel.FK__product_i__produ__34C8D9D1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
