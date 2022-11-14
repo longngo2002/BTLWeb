@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,18 +49,28 @@ namespace BTLWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "name,updated_date,status,deleted,price,price_sale,id,quantity,description,isHot,create_at,rate,avatar_url,category_id,create_user")] product product)
+        public ActionResult Create(product product)
         {
-            if (ModelState.IsValid)
-            {
-                db.products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+
+         
+                string fileName = Path.GetFileNameWithoutExtension(product.ImageUpload.FileName);
+                string extenstion = Path.GetExtension(product.ImageUpload.FileName);
+                fileName = fileName + extenstion;
+                product.avatar_url = "~/Assets2/img/" + fileName;
+                product.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Assets2/img/"), fileName));
+           
+
+
+            product.updated_date = DateTime.Now;
+            db.products.Add(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
 
             ViewBag.category_id = new SelectList(db.categories, "id", "name", product.category_id);
             return View(product);
         }
+
 
         // GET: products/Edit/5
         public ActionResult Edit(int? id)

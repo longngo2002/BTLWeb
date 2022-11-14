@@ -93,7 +93,10 @@
             @Html.DisplayFor(modelItem => item.rate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.avatar_url)
+            @if (item.avatar_url != null)
+            {
+                <img src="@Url.Content(item.avatar_url)" style="height:50px;width:50px;margin:10px" id="previewImage" />
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.create_user)
