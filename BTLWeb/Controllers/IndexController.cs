@@ -14,14 +14,24 @@ namespace BTLWeb.Controllers
         // GET: Index
         public ActionResult Index(int? page)
         {
-            List<category> lstcate;
+            List<product> lstpd;
+            lstpd = db.products.ToList();
 
-            int pagesize = 16; //so sp toi da tren 1 trang 
-            int pagenumber = (page ?? 1); //neu null thi nhan 1
-
-            return View();
+            return View(lstpd);
         }
 
+        public ActionResult Detail(string masp)
+        {
+            product sp = db.products.Where(n => n.id.Equals(masp)).FirstOrDefault();
+            return View(sp);
+        }
+        
+        public PartialViewResult Banner()
+        {
+            List<banner> banner = db.banners.ToList();
 
+            return PartialView(banner);
+        }
+        
     }
 }    
